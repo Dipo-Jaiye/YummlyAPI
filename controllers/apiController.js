@@ -3,7 +3,7 @@ const yummlyCtrl = require("./yummlyController");
 module.exports = {
     autocomplete: async (req, res, next) => {
         try {
-            var response = await yummlyCtrl.getFeedsAutoComplete(req.query);
+            var response = await yummlyCtrl.getFeedsAutoComplete(req.query["phrase"]);
             if (response.status) {
                 return res.status(200).json({
                     message: "success",
