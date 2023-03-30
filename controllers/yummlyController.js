@@ -64,7 +64,7 @@ module.exports = {
 
             let params = {
                 start: getResultOffset(query),
-                maxResults: getResultSizeLimit(query),
+                maxResult: getResultSizeLimit(query),
             };
 
             let optionalParamList = ["VITA_IUMax", "VITCMax", "KMax", "meatyMax",
