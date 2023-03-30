@@ -99,7 +99,6 @@ module.exports = {
     },
     search: async (req, res, next) => {
         try {
-            console.log("discovered search");
             var response = await yummlyCtrl.getFeedsSearch(req.body);
             if (response.status) {
                 return res.status(200).json({
