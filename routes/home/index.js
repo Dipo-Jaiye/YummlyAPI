@@ -1,7 +1,8 @@
 const router = require("express").Router();
+const homeCtrl = require("../../controllers/homeController");
 
-router.get("/", (req, res) => res.status(200).json({message:"welcome to dipo yummly api"}));
+router.get("/", homeCtrl.Home);
 
-router.get("/status", (req, res) => res.status(200).json({message:"working!"}));
+router.get("/status", homeCtrl.HealthCheck);
 
 module.exports = router;
