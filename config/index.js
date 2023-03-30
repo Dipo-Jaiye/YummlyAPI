@@ -10,4 +10,6 @@ module.exports = {
     yummlyTagsList: process.env.YUMMLY_TAGS_LIST,
     yummlyReviewsList: process.env.YUMMLY_REVIEWS_LIST,
     yummlyCategoriesList: process.env.YUMMLY_CATEGORIES_LIST,
+    defaultPage: process.env.DEFAULT_RESPONSE_PAGE,
+    defaultPageSize: process.env.DEFAULT_RESPONSE_SIZE,
 }
