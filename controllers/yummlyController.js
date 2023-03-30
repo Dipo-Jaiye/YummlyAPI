@@ -50,8 +50,8 @@ module.exports = {
             };
 
         } catch (err) {
-            err = err.isAxiosError ? err.message : err;
-            console.error("Error occurred retrieving feeds_autocomplete, %o", err);
+            let errMessage = err.isAxiosError ? err.message : err;
+            console.error("Error occurred retrieving feeds_autocomplete, %o", errMessage);
             return {
                 status: false,
                 error: err
@@ -86,8 +86,8 @@ module.exports = {
             };
 
         } catch (err) {
-            err = err.isAxiosError ? err.message : err;
-            console.error("Error occurred retrieving feeds_search, %o", err);
+            let errMessage = err.isAxiosError ? err.message : err;
+            console.error("Error occurred retrieving feeds_search, %o", errMessage);
             return {
                 status: false,
                 error: err
@@ -119,8 +119,8 @@ module.exports = {
             };
 
         } catch (err) {
-            err = err.isAxiosError ? err.message : err;
-            console.error("Error occurred retrieving feeds_list, %o", err);
+            let errMessage = err.isAxiosError ? err.message : err;
+            console.error("Error occurred retrieving feeds_list, %o", errMessage);
             return {
                 status: false,
                 error: err
@@ -153,8 +153,8 @@ module.exports = {
             };
 
         } catch (err) {
-            err = err.isAxiosError ? err.message : err;
-            console.error("Error occurred retrieving feeds_list_similarities, %o", err);
+            let errMessage = err.isAxiosError ? err.message : err;
+            console.error("Error occurred retrieving feeds_list_similarities, %o", errMessage);
             return {
                 status: false,
                 error: err
@@ -175,8 +175,8 @@ module.exports = {
             };
 
         } catch (err) {
-            err = err.isAxiosError ? err.message : err;
-            console.error("Error occurred retrieving tags_list, %o", err);
+            let errMessage = err.isAxiosError ? err.message : err;
+            console.error("Error occurred retrieving tags_list, %o", errMessage);
             return {
                 status: false,
                 error: err
@@ -197,8 +197,8 @@ module.exports = {
             };
 
         } catch (err) {
-            err = err.isAxiosError ? err.message : err;
-            console.error("Error occurred retrieving categories_list, %o", err);
+            let errMessage = err.isAxiosError ? err.message : err;
+            console.error("Error occurred retrieving categories_list, %o", errMessage);
             return {
                 status: false,
                 error: err
@@ -227,8 +227,8 @@ module.exports = {
             };
 
         } catch (err) {
-            err = err.isAxiosError ? err.message : err;
-            console.error("Error occurred retrieving reviews_list, %o", err);
+            let errMessage = err.isAxiosError ? err.message : err;
+            console.error("Error occurred retrieving reviews_list, %o", errMessage);
             return {
                 status: false,
                 error: err
