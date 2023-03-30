@@ -1,9 +1,9 @@
 module.exports = {
-    Home: (req, res) => {
+    home: (req, res) => {
         return res.status(200).json({message:"welcome to dipo yummly api"});
     },
 
-    HealthCheck: (req, res) => {
+    healthCheck: (req, res) => {
         return res.status(200).json({message:"working!"});
     }
 };
