@@ -99,7 +99,7 @@ module.exports = {
     },
     search: async (req, res, next) => {
         try {
-            var response = await yummlyCtrl.getFeedsSearch(req.body);
+            var response = await yummlyCtrl.getFeedsSearch(req.query, req.body);
             if (response.status) {
                 return res.status(200).json({
                     message: "success",

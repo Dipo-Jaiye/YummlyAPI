@@ -23,16 +23,6 @@ const getResultSizeLimit = (query) => {
     return query.pageSize !== undefined && query.pageSize > 0 ? parseInt(query.pageSize) : parseInt(config.defaultPageSize);
 };
 
-// function to loop through the optional parameter list and include in the request if present
-const includeOptionalParameters = (optionalParamList, query, params) => {
-    for (let optionalParam of optionalParamList) {
-        if (query[optionalParam] !== undefined) {
-            params[optionalParam] = query[optionalParam];
-        }
-    }
-    return params;
-};
-
 module.exports = {
     getFeedsAutoComplete: async (query) => {
         try {
@@ -59,20 +49,14 @@ module.exports = {
         }
     },
 
-    getFeedsSearch: async (query) => {
+    getFeedsSearch: async (query, body) => {
         try {
 
             let params = {
                 start: getResultOffset(query),
                 maxResult: getResultSizeLimit(query),
+                ...body
             };
-
-            let optionalParamList = ["VITA_IUMax", "VITCMax", "KMax", "meatyMax",
-                "FASATMax", "piquantMax", "sweetMin", "maxTotalTimeInSeconds", "q", "piquantMin", "FATMax", "sweetMax",
-                "FEMax", "sourMin", "NAMax", "meatyMin", "CAMax", "FIBTGMax", "CHOLEMax", "allowedAttribute", "sourMax", "ENERC_KCALMax", "CHOCDFMax",
-                "saltyMin", "SUGARMax", "FAT_KCALMax", "PROCNTMax", "saltyMax"];
-
-            params = includeOptionalParameters(optionalParamList, query, params);
 
             const options = getOptionsObject(config.yummlyFeedsSearch);
 
@@ -103,9 +87,9 @@ module.exports = {
                 limit: getResultSizeLimit(query),
             };
 
-            let optionalParamList = ["tag"];
-
-            params = includeOptionalParameters(optionalParamList, query, params);
+            if (query["tag"] !== undefined) {
+                params["tag"] = query["tag"];
+            }
 
             const options = getOptionsObject(config.yummlyFeedsList);
 
@@ -137,9 +121,13 @@ module.exports = {
                 id: query.id,
             };
 
-            let optionalParamList = ["apiFeedType", "authorId"];
+            if (query["apiFeedType"] !== undefined) {
+                params["apiFeedType"] = query["apiFeedType"];
+            }
 
-            params = includeOptionalParameters(optionalParamList, query, params);
+            if (query["authorId"] !== undefined) {
+                params["authorId"] = query["authorId"];
+            }
 
             const options = getOptionsObject(config.yummlyFeedsListSimilarities);
 
