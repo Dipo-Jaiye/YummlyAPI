@@ -10,6 +10,6 @@ router.get("/recipe/tags", apiCtrl.tags);
 router.get("/recipe/feeds", apiCtrl.feeds);
 router.get("/recipe/similar", validators.similarValidator, apiCtrl.similar);
 router.get("/recipe/reviews", validators.reviewsValidator, apiCtrl.reviews);
-router.post("/recipe/search", apiCtrl.search);
+router.post("/recipe/search", validators.searchValidator, apiCtrl.search);
 
 module.exports = router;
